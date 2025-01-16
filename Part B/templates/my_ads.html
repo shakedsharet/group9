@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHome - דירות בבאר שבע</title>
+    <link rel="stylesheet" href="../static/styles/my_ads.css">
+</head>
+<body>
+    <header>
+        <a href="UniHome.html"><img src="../static/pictures/logo.png" alt="לוגו UniHome"></a>
+        <nav>
+            <ul>
+                <li><a href="UniHome.html">דף הבית</a></li> |
+                <li><a href="search_page.html">חיפוש דירה</a></li> |
+                <li><a href="upload_an_ad.html">פרסום דירה</a></li> |
+                <li><a href="about.html">קצת עלינו</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="favorites.html"><img src="../static/pictures/heart.png" alt="לוגו לב"></a>
+            <a href="login.html"><img src="../static/pictures/logged_in.png" alt="לוגו מחובר"></a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+          <h1 id="ads-title">המודעות שלי</h1>
+          <a href="ad_info.html" class="ad-link">
+          <div class="ad-information">
+                <img src="../static/pictures/apartment-image.jpg" alt="תמונה של הדירה" class="apartment-image">
+                <div class="two-rows">
+                    <div class="address">רחוב לדוגמה ומס'</div>
+                    <div class="apartment-details">
+                        <div class="detail-item">
+                            <img src="../static/pictures/room-num.png" alt="אייקון חדרים" class="apartment-details-images">
+                            <span>3 חדרים</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/floor-num.png" alt="אייקון קומות" class="apartment-details-images">
+                            <span>קומה 2</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/size.png" alt="אייקון גודל" class="apartment-details-images">
+                            <span>55 מ"ר</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/distance.png" alt="אייקון מרחק" class="apartment-details-images">
+                            <span>1.5 ק"מ מהאוניברסיטה</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/neighborhood.png" alt="אייקון שכונה" class="apartment-details-images">
+                            <span>שכונה ד</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="price">
+                    <span class="label">מחיר שכירות חודשית:</span>
+                    <span class="value">₪2,500</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div id="loader"></div>
+        <script src="../static/scripts/loader.js"></script>
+    </main>
+    <footer>
+        <p>© UniHome - כל הזכויות שמורות</p>
+    </footer>
+</body>
+</html>
+

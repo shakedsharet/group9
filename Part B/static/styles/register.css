@@ -1,0 +1,250 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 246, 231);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 15px;
+}
+
+header img {
+    width: 90px;
+    height: auto;
+}
+
+header .buttons {
+    display: flex;
+    gap: 5px;
+    margin-right: 0px;
+}
+
+header .buttons a {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+header .buttons img {
+    width: 25px;
+    height: auto;
+    margin: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+    font-size:16px;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #290A6A;
+    font-weight: bold;
+}
+
+footer {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+    text-align: center;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.registration-box h1 {
+    color: #290A6A;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: black;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.input-group input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: right;
+}
+
+button {
+    background-color: #290A6A;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #3b158e;
+}
+
+.registration-box p {
+    color: #290A6A;
+    margin-top: 15px;
+}
+
+.registration-box a {
+    color: #290A6A;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.registration-box a:hover {
+    text-decoration: underline;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#loader::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 5px solid #290A6A;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 860px) {
+    nav ul li {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header > a,
+    header > nav {
+        margin-bottom: 5px;
+    }
+
+    header img {
+        width: 80px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        white-space:nowrap;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+        text-align: center;
+    }
+
+   header .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        margin-right: 0px;
+    }
+
+    header .buttons a {
+        font-size: 14px;
+        text-align: center;
+    }
+}

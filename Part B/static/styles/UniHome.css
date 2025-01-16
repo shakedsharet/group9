@@ -1,0 +1,284 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 246, 231);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 15px;
+}
+
+header img {
+    width: 90px;
+    height: auto;
+}
+
+header .buttons {
+    display: flex;
+    gap: 5px;
+    margin-right: 0px;
+
+}
+header .buttons a {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+header .buttons img {
+    width: 25px;
+    height: auto;
+    margin: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+nav ul li {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #290A6A;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #290A6A;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 45px;
+}
+
+main p {
+    color: #333;
+    text-align: center;
+    margin: 0;
+    line-height: 1.2;
+    font-size: 20px;
+}
+
+.text {
+    flex: 1;
+    text-align: right;
+    max-width: 50%;
+    margin-right: 0px;
+}
+
+.frame {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.homepage-image {
+    flex: 1;
+    max-width: 45%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.homepage-image:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.login_btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 10px 20px;
+    background-color: #290A6A;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    width: 100px;
+    flex-wrap: wrap;
+}
+
+.login_btn:hover {
+    background-color: #3c1594;
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+    text-align: center;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#loader::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 5px solid #290A6A;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.marquee {
+    background-color: White;
+    color: black;
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: marquee 60s linear infinite;
+    padding-right: 100%;
+    white-space: pre;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+ }
+
+@media screen and (max-width: 900px) {
+
+    h2 {
+    font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    nav ul li {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    header > a,
+    header > nav {
+        margin-bottom: 5px;
+    }
+
+    header img {
+        width: 80px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        white-space:nowrap;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+        text-align: center;
+    }
+
+   header .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        margin-right: 0px;
+    }
+    header .buttons a {
+        font-size: 14px;
+        text-align: center;
+    }
+    .frame {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .text {
+        text-align: center;
+        max-width: 100%;
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .homepage-image {
+        max-width: 80%;
+        margin-top: 10px;
+        margin-left: 0px;
+
+    }
+
+    .login_btn {
+        font-size: 14px;
+        width: 30%;
+    }
+    h2 {
+        font-size: 35px;
+    }
+}
+
+

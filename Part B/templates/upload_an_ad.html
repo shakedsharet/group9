@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHome - דירות בבאר שבע</title>
+    <link rel="stylesheet" href="../static/styles/upload_an_ad.css">
+    <link rel="stylesheet" href="../static/styles/errors.css">
+</head>
+<body>
+    <header>
+        <a href="UniHome.html"><img src="../static/pictures/logo.png" alt="לוגו UniHome"></a>
+        <nav>
+            <ul>
+                <li><a href="UniHome.html">דף הבית</a></li> |
+                <li><a href="search_page.html">חיפוש דירה</a></li> |
+                <li><a href="upload_an_ad.html">פרסום דירה</a></li> |
+                <li><a href="about.html">קצת עלינו</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="favorites.html"><img src="../static/pictures/heart.png" alt="לוגו לב"></a>
+            <a href="user_area.html"><img src="../static/pictures/logged_in.png" alt="לוגו מחובר"></a>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="upload-an-ad-title">
+            <img src="../static/pictures/upload.png" alt="אייקון העלאה" class="upload-icon">
+            <span>פרסום דירה</span>
+        </h1>
+        <form class="ad-details-form" id="form">
+
+        <!-- קונטיינר 1 -->
+        <div class="form-container-1">
+            <div class="form-details">
+                <label>שם המפרסם/ת</label>
+                <input id="name" type="text" required>
+            </div>
+            <div class="form-details">
+                <label>כתובת (רחוב מס', עיר)</label>
+                <input id="address" name="address" type="text" required>
+            </div>
+            <div class="form-details">
+                <label>מס' חדרים</label>
+                <input id="rooms" name="rooms" type="number" required>
+            </div>
+            <div class="form-details">
+                <label>גודל במ"ר</label>
+                <input id="size" name="size" type="number" required>
+            </div>
+            <div class="form-details">
+                <label>מרחק מהאוניברסיטה (ק"מ)</label>
+                <input id="distance" name="distance" type="number" required>
+            </div>
+            <div class="form-details">
+                <label>שכונה</label>
+                <select id="neighborhood-select">
+                    <option value="בחר">בחר</option>
+                    <option value="א">א</option>
+                    <option value="ב">ב</option>
+                    <option value="ג">ג</option>
+                    <option value="ד">ד</option>
+                    <option value="ה">ה</option>
+                    <option value="ו החדשה">ו החדשה</option>
+                    <option value="ו הישנה">ו הישנה</option>
+                    <option value="אחר">אחר</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- קונטיינר 2 -->
+        <div class="form-container-2">
+            <div class="checkbox-details">
+                <label>
+                    <input type="checkbox" id="furnished" name="details" value="furnished"> מרוהטת
+                </label>
+                <label>
+                    <input type="checkbox" id="pets" name="details" value="pets"> חיות מחמד
+                </label>
+                <label>
+                    <input type="checkbox" id="shelter" name="details" value="shelter"> מרחב מוגן
+                </label>
+                <label>
+                    <input type="checkbox" id="garden" name="details" value="garden"> חצר
+                </label>
+                <label>
+                    <input type="checkbox" id="renovated" name="details" value="renovated"> משופצת
+                </label>
+            </div>
+        </div>
+
+        <!-- שדות נוספים למטה -->
+        <div class="form-details">
+            <label for="description">תיאור נוסף:</label>
+            <textarea id="description" name="description" rows="5" cols="50"></textarea>
+        </div>
+
+        <div class="form-details">
+            <div class="publishDate">
+                <label for="publishDate">תאריך פרסום:</label>
+                <span id="publishDate"></span>
+            </div>
+        </div>
+        <script src="../static/scripts/set_publish_date.js"></script>
+
+        <label for="imageUpload" class="upload-button">
+        <img src="../static/pictures/upload.png" alt="העלאת תמונות" class="upload-icon"> העלאת תמונות
+        </label>
+        <input type="file" id="imageUpload" name="image" accept="image/*" style="display: none;" multiple>
+        <p id="selectedFilesText">לא נבחרו תמונות</p>
+            <script src="../static/scripts/num_of_pics_up.js"></script>
+
+        <button type="submit" class="submit-button">פרסום</button>
+    </form>
+        <div id="loader"></div>
+        <script src="../static/scripts/loader.js"></script>
+        <script src="../static/scripts/upload_an_ad_validation.js"></script>
+    </main>
+
+    <footer>
+        <p>© UniHome - כל הזכויות שמורות</p>
+    </footer>
+</body>
+</html>

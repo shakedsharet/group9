@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHome - דירות בבאר שבע</title>
+    <link rel="stylesheet" href="../static/styles/search_page.css">
+</head>
+<body>
+    <header>
+        <a href="UniHome.html"><img src="../static/pictures/logo.png" alt="לוגו UniHome"></a>
+        <nav>
+            <ul>
+                <li><a href="UniHome.html">דף הבית</a></li> |
+                <li><a href="search_page.html">חיפוש דירה</a></li> |
+                <li><a href="upload_an_ad.html">פרסום דירה</a></li> |
+                <li><a href="about.html">קצת עלינו</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="favorites.html"><img src="../static/pictures/heart.png" alt="לוגו לב"></a>
+            <a href="user_area.html"><img src="../static/pictures/logged_in.png" alt="לוגו מחובר"></a>
+        </div>
+    </header>
+    <main>
+        <div class="search-container">
+            <h1>מוכן למצוא את הבית הבא שלך?</h1>
+            <p>גלה דירות בבאר שבע בקליק! סנן לפי העדפותיך והתחל לחפש עכשיו</p>
+        </div>
+        <!-- סינון וקטגוריות -->
+        <section class="filters">
+            <div class="filter">
+                <div class="rooms-dropdown">
+                    <select id="room-select">
+                        <option value="" disabled selected hidden>מספר חדרים</option>
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4">4</option>
+                        <option value="4.5">4.5</option>
+                        <option value="+5">+5</option>
+                    </select>
+                </div>
+
+                <div class="prices-dropdown">
+                    <select id="price-select">
+                        <option value="" disabled selected hidden>מחיר</option>
+                        <option value="0₪-2,000₪">0₪ - 2,000₪</option>
+                        <option value="2,000₪-3,000₪">2,000₪ - 3,000₪</option>
+                        <option value="3,000₪-4,000₪">3,000₪ - 4,000₪</option>
+                        <option value="4,000₪-5,000₪">4,000₪ - 5,000₪</option>
+                        <option value="+5,000₪">+5,000₪</option>
+                    </select>
+                </div>
+
+                <div class="neighborhoods-dropdown">
+                    <select id="neighborhood-select">
+                        <option value="" disabled selected hidden>שכונה</option>
+                        <option value="א">א</option>
+                        <option value="ב">ב</option>
+                        <option value="ג">ג</option>
+                        <option value="ד">ד</option>
+                        <option value="ה">ה</option>
+                        <option value="ו החדשה">ו החדשה</option>
+                        <option value="ו הישנה">ו הישנה</option>
+                        <option value="אחר">אחר</option>
+                    </select>
+                </div>
+
+                <div class="distances-dropdown">
+                    <select id="distance-select">
+                        <option value="" disabled selected hidden>מרחק מהאונ'</option>
+                        <option value="פחות מ-1 קמ">פחות מ-1 ק"מ</option>
+                        <option value="1-2 קמ">1-2 ק"מ</option>
+                        <option value="2-3 קמ">2-3 ק"מ</option>
+                        <option value="3-4 קמ">3-4 ק"מ</option>
+                        <option value="4-5 קמ">4-5</option>
+                        <option value="5+ קמ">5+ קמ</option>
+                    </select>
+                </div>
+
+                <div class="additional-filters-dropdown">
+                    <button class="dropdown-btn">סינונים נוספים</button>
+                    <div class="dropdown-content">
+                        <label>
+                            <input type="checkbox" name="details" value="furnished"> מרוהטת
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="pets"> חיות מחמד
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="shelter"> מרחב מוגן
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="garden"> חצר
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="renovated"> משופצת
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+           <div class="container">
+               <a href="ad_info.html" class="ad-link">
+               <div class="ad-information">
+                        <img src="../static/pictures/apartment-image.jpg" alt="תמונה של הדירה" class="apartment-image">
+                        <div class="two-rows">
+                            <div class="address">רחוב לדוגמה ומס'</div>
+                            <div class="apartment-details">
+                                <div class="detail-item">
+                                    <img src="../static/pictures/room-num.png" alt="אייקון חדרים" class="apartment-details-images">
+                                    <span>3 חדרים</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/floor-num.png" alt="אייקון קומות" class="apartment-details-images">
+                                    <span>קומה 2</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/size.png" alt="אייקון גודל" class="apartment-details-images">
+                                    <span>55 מ"ר</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/distance.png" alt="אייקון מרחק" class="apartment-details-images">
+                                    <span>1.5 ק"מ מהאוניברסיטה</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/neighborhood.png" alt="אייקון שכונה" class="apartment-details-images">
+                                    <span>שכונה ד</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <span class="label">מחיר שכירות חודשית:</span>
+                            <span class="value">₪2,500</span>
+                        </div>
+                </div>
+               </a>
+               <a href="ad_info.html" class="ad-link">
+                <div class="ad-information">
+                        <img src="../static/pictures/apartment-image.jpg" alt="תמונה של הדירה" class="apartment-image">
+                        <div class="two-rows">
+                            <div class="address">רחוב לדוגמה ומס'</div>
+                            <div class="apartment-details">
+                                <div class="detail-item">
+                                    <img src="../static/pictures/room-num.png" alt="אייקון חדרים" class="apartment-details-images">
+                                    <span>3 חדרים</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/floor-num.png" alt="אייקון קומות" class="apartment-details-images">
+                                    <span>קומה 2</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/size.png" alt="אייקון גודל" class="apartment-details-images">
+                                    <span>55 מ"ר</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/distance.png" alt="אייקון מרחק" class="apartment-details-images">
+                                    <span>1.5 ק"מ מהאוניברסיטה</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="../static/pictures/neighborhood.png" alt="אייקון שכונה" class="apartment-details-images">
+                                    <span>שכונה ד</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <span class="label">מחיר שכירות חודשית:</span>
+                            <span class="value">₪2,500</span>
+                        </div>
+                </div>
+               </a>
+            </div>
+        <div id="loader"></div>
+        <script src="../static/scripts/loader.js"></script>
+        <script src="../static/scripts/search_page.js"></script>
+    </main>
+    <footer>
+        <p>© UniHome - כל הזכויות שמורות</p>
+    </footer>
+    </body>
+</html>

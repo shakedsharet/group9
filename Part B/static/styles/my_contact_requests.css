@@ -1,0 +1,418 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 246, 231);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 15px;
+}
+
+header img {
+    width: 90px;
+    height: auto;
+}
+
+header .buttons {
+    display: flex;
+    gap: 5px;
+    margin-right: 0px;
+
+}
+header .buttons a {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+header .buttons img {
+    width: 25px;
+    height: auto;
+    margin: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+nav ul li {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #290A6A;
+    font-weight: bold;
+}
+
+footer {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+    text-align: center;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin-bottom: 20px;
+}
+
+.title-container {
+    text-align: center;
+
+    margin-top: 5px;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title-container h1 {
+    font-size: 28px;
+    color: #290A6A;
+    margin-bottom: 5px;
+}
+
+.title-container p {
+    font-size: 18px;
+    color: black;
+}
+
+/*--------------------------*/
+.inquiries-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inquiry-card {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 0 auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.apartment-image {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.inquiry-content {
+    flex: 1;
+    padding: 20px;
+    min-width: 0;
+}
+
+.inquiry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.apartment-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: #290A6A;
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.apartment-link:hover {
+    text-decoration: underline;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.status-new {
+    background-color: #22c55e;
+    color: white;
+}
+
+.status-read {
+    background-color: #6b7280;
+    color: white;
+}
+
+.property-address {
+    color: #4e4b4b;
+    margin-bottom: 16px;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.contact-box {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.contact-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+.contact-details {
+    display: grid;
+    gap: 5px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4b5563;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.contact-item a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.inquiry-message {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    color: #4b5563;
+}
+
+/*--------------------------*/
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#loader::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 5px solid #290A6A;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media screen and (max-width: 860px) {
+    nav ul li {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    header > a,
+    header > nav {
+        margin-bottom: 5px;
+    }
+
+    header img {
+        width: 80px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        white-space:nowrap;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+        text-align: center;
+    }
+
+   header .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        margin-right: 0px;
+    }
+    header .buttons a {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .inquiry-card {
+        width: 90%;
+    }
+
+    .inquiry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 662px) {
+    .inquiry-card {
+        width: 95%;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+
+    .apartment-image {
+        width: calc(100% - 15px);
+        height: 200px;
+        object-fit: cover;
+        padding: 5px;
+    }
+
+    .inquiry-content {
+        padding: 15px;
+    }
+
+    .inquiry-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-box {
+        padding: 12px;
+    }
+
+    .contact-details {
+        gap: 6px;
+    }
+
+    .contact-item {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 468px) {
+    .inquiry-card {
+        width: 90%;
+    }
+
+    .apartment-image {
+        height: 180px;
+        padding: 5px;
+    }
+
+    .inquiry-content {
+        padding: 12px;
+    }
+
+    .apartment-link {
+        font-size: 18px;
+    }
+
+    .status-badge {
+        font-size: 12px;
+        padding: 3px 10px;
+    }
+
+    .property-address {
+        font-size: 14px;
+    }
+
+    .contact-name {
+        font-size: 14px;
+    }
+
+    .contact-item {
+        font-size: 13px;
+    }
+
+    .inquiry-message {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .inquiry-card {
+        width: 95%;
+    }
+
+    .apartment-image {
+        height: 160px;
+    }
+
+    .inquiry-content {
+        padding: 10px;
+    }
+
+    .apartment-link {
+        font-size: 16px;
+    }
+
+    .contact-item {
+        font-size: 12px;
+    }
+}

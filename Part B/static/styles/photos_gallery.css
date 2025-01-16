@@ -1,0 +1,237 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 246, 231);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 15px;
+}
+
+header img {
+    width: 90px;
+    height: auto;
+}
+
+header .buttons {
+    display: flex;
+    gap: 5px;
+    margin-right: 0px;
+}
+
+header .buttons a {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+header .buttons img {
+    width: 25px;
+    height: auto;
+    margin: 5px;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+    font-size:16px;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #290A6A;
+    font-weight: bold;
+}
+
+footer {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+    text-align: center;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+.gallery-section {
+    padding: 20px;
+}
+
+.gallery-title {
+    font-size: 28px;
+    color: #290A6A;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.back-button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #290A6A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #4528a8;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-item {
+    flex: 1 1 calc(33.33% - 15px);
+    max-width: calc(33.33% - 15px);
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-item img:hover {
+    transform: scale(1.1);
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#loader::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 5px solid #290A6A;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media screen and (max-width: 860px) {
+    nav ul li {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header > a,
+    header > nav {
+        margin-bottom: 5px;
+    }
+
+    header img {
+        width: 80px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        white-space:nowrap;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+        text-align: center;
+    }
+
+   header .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        margin-right: 0px;
+    }
+    header .buttons a {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .gallery-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .image-item {
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+        flex: 1 1 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+        box-sizing: border-box;
+        transition: transform 0.3s ease;
+    }
+}
+

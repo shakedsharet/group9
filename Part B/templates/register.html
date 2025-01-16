@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHome - דירות בבאר שבע</title>
+    <link rel="stylesheet" href="../static/styles/register.css">
+    <link rel="stylesheet" href="../static/styles/errors.css">
+
+</head>
+<body>
+    <header>
+        <a href="UniHome.html"><img src="../static/pictures/logo.png" alt="לוגו UniHome"></a>
+        <nav>
+            <ul>
+                <li><a href="UniHome.html">דף הבית</a></li> |
+                <li><a href="search_page.html">חיפוש דירה</a></li> |
+                <li><a href="upload_an_ad.html">פרסום דירה</a></li> |
+                <li><a href="about.html">קצת עלינו</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="favorites.html"><img src="../static/pictures/heart.png" alt="לוגו לב"></a>
+            <a href="login.html"><img src="../static/pictures/login.png" alt="לוגו משתמש"></a>
+        </div>
+    </header>
+    <main>
+    <div class="container">
+        <div class="registration-box">
+            <h1>היי, נעים להכיר</h1>
+            <p>הזינו את כתובת המייל איתה תרצו להירשם ובחרו סיסמה.</p>
+            <form id="registration-form" action="register_verif.html">
+                <div class="input-group">
+                  <label for="email"><span class="icon"></span>📧אימייל</label>
+                        <input type="email" id="email" name="email" placeholder="הכנסת אימייל" required>
+                </div>
+                <div class="input-group">
+                  <label for="password"><span class="icon"></span>🔒סיסמה</label>
+                  <input type="password" id="password" name="password" placeholder="הכנסת סיסמה" required>
+                </div>
+                <div class="input-group">
+                  <label for="password"><span class="icon"></span>🔒אימות סיסמה</label>
+                  <input type="password" id="password_verif" name="password_v" placeholder="הכנסת סיסמה שוב" required>
+                </div>
+                <button type="submit">המשך</button>
+            </form>
+            <p>כבר יש לך חשבון? <a href="login.html">להתחברות</a></p>
+        </div>
+    </div>
+        <div id="loader"></div>
+        <script src="../static/scripts/loader.js"></script>
+        <script src="../static/scripts/register_validation.js"></script>
+</main>
+
+    <footer>
+        <p>© UniHome - כל הזכויות שמורות</p>
+    </footer>
+
+</body>
+</html>

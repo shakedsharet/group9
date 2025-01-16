@@ -1,0 +1,339 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 246, 231);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 15px;
+}
+
+header img {
+    width: 90px;
+    height: auto;
+}
+
+header .buttons {
+    display: flex;
+    gap: 5px;
+    margin-right: 0px;
+}
+
+header .buttons a {
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+header .buttons img {
+    width: 25px;
+    height: auto;
+    margin: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+    font-size:16px;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #290A6A;
+    font-weight: bold;
+}
+
+footer {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+    text-align: center;
+}
+
+footer p {
+    font-size: 15px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ads-title {
+    display: flex;
+    font-size: 25px;
+    color: #290A6A;
+    margin-right: 15px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.ad-information {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.two-rows {
+    flex-direction: column;
+    align-content: center;
+    padding-right: 10px;
+    margin-left: auto;
+}
+
+.address {
+    font-size: 18px;
+    font-weight: bold;
+    color: #290A6A;
+    margin-bottom: 10px;
+}
+.apartment-image {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.apartment-details {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+}
+.apartment-details-images {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6347;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.price .label {
+    font-weight: normal;
+    color: black;
+}
+
+.price .value {
+    font-size: 20px;
+    color: #ff6347;
+}
+
+.ad-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.ad-link:hover {
+    cursor: pointer;
+}
+
+.ad-link:hover .ad-information {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#loader::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 5px solid #290A6A;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 860px) {
+    nav ul li {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header > a,
+    header > nav {
+        margin-bottom: 5px;
+    }
+
+    header img {
+        width: 80px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        white-space:nowrap;
+
+    }
+
+    nav ul li {
+        margin: 0 10px;
+        text-align: center;
+    }
+
+   header .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        margin-right: 0px;
+    }
+
+    header .buttons a {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .two-rows {
+        flex-wrap: wrap;
+    }
+    .ad-information{
+        width: 90%;
+    }
+    .apartment-details {
+        font-size: 15px;
+        justify-content: start;
+        width: 70%;
+    }
+    .apartment-details-images {
+        width: 20px;
+        height: 20px;
+    }
+
+    .price .label {
+        font-size: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+    }
+    h1{
+    margin-top:0;
+    }
+
+    .price .value {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 468px) {
+    .ad-information {
+        flex-direction: column;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .price {
+        margin-top: 10px;
+        order: 2;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .price .label {
+        font-size: 18px;
+    }
+
+    .price .value {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .apartment-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .two-rows {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

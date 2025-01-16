@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHome - דירות בבאר שבע</title>
+    <link rel="stylesheet" href="../static/styles/ad_info.css">
+</head>
+<body>
+    <header>
+        <a href="UniHome.html"><img src="../static/pictures/logo.png" alt="לוגו UniHome"></a>
+        <nav>
+            <ul>
+                <li><a href="UniHome.html">דף הבית</a></li> |
+                <li><a href="#">חיפוש דירה</a></li> |
+                <li><a href="#">פרסום דירה</a></li> |
+                <li><a href="about.html">קצת עלינו</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <a href="favorites.html"><img src="../static/pictures/heart.png" alt="לוגו לב"></a>
+            <a href="user_area.html"><img src="../static/pictures/logged_in.png" alt="לוגו מחובר"></a>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="images-section">
+                <img src="../static/pictures/apartment-image.jpg" alt="תמונה 1 של הדירה" class="apartment-image">
+                <img src="../static/pictures/kitchen-image.jpg" alt="תמונה 2 של הדירה" class="apartment-image">
+                <a href="photos_gallery.html" class="more-images-btn">תמונות <br>נוספות</a>
+            </div>
+            <div class="two-rows">
+                   <div class="address">רחוב רבי עקיבא 68</div>
+                    <div class="apartment-details">
+                        <div class="detail-item">
+                            <img src="../static/pictures/room-num.png" alt="אייקון חדרים" class="apartment-details-images">
+                            <span>3 חדרים</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/floor-num.png" alt="אייקון קומות" class="apartment-details-images">
+                            <span>קומה 2</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/size.png" alt="אייקון גודל" class="apartment-details-images">
+                            <span>55 מ"ר</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/distance.png" alt="אייקון מרחק" class="apartment-details-images">
+                            <span>1.5 ק"מ מהאוניברסיטה</span>
+                        </div>
+                        <div class="detail-item">
+                            <img src="../static/pictures/neighborhood.png" alt="אייקון שכונה" class="apartment-details-images">
+                            <span>שכונה ד</span>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="two-rows">
+                <div class="checkbox-details">
+                    <label>
+                        <input type="checkbox" id="furnished-ad" disabled> מרוהטת
+                    </label>
+                    <label>
+                        <input type="checkbox" id="pets-ad" disabled> חיות מחמד
+                    </label>
+                    <label>
+                        <input type="checkbox" id="shelter-ad" disabled> מרחב מוגן
+                    </label>
+                    <label>
+                        <input type="checkbox" id="garden-ad" disabled> חצר
+                    </label>
+                    <label>
+                        <input type="checkbox" id="renovated-ad" disabled> משופצת
+                    </label>
+                </div>
+            </div>
+            <div class="apartment-description">
+                דירה ברבי עקיבא 68 - הזדמנות שלא תרצו לפספס! דירה משופצת בעלת 3 חדרים, מאובזרת עם כל מה שצריך.
+                נמצאת מול המכתש במיקום מעולה שקרוב להכל. ארנונה: 400 ש"ח לחודשיים, פארק בקרבת מקום וכ-10 דקות מהאוניברסיטה.
+            </div>
+            <div class="price">
+                <span class="label">מחיר שכירות חודשית:</span>
+                <span class="value">₪2,500</span>
+            </div>
+            <div class="publisher-name">
+                <label>שם המפרסם/ת: שקד לוי</label> | <label for="publishDate">תאריך פרסום:</label> <span id="publishDate"></span>
+            </div>
+            <div class="two-buttons">
+                <label class="favorite-btn">
+                    <input type="checkbox">
+                    <img src="../static/pictures/empty-heart.png" alt="לוגו לב ריק">
+                </label>
+                <a href="contact_form.html" class="contact-button">להשארת פרטים</a>
+            </div>
+        </div>
+        <script src="../static/scripts/set_publish_date.js"></script>
+        <script src="../static/scripts/ad_info.js"></script>
+    </main>
+    <footer>
+        <p>© UniHome - כל הזכויות שמורות</p>
+    </footer>
+</body>
+</html>
