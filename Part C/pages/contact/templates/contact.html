@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Contact' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('contact.static', filename='css/contact.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <h1 class="contact-form-title">
+            <img src="{{ url_for('contact.static', filename='img/edit-icon.png') }}" alt="אייקון כתיבה" class="edit-icon">
+            <span>יצירת קשר עם המשכיר</span>
+        </h1>
+        <form class="contact-form" action="{{ url_for('contact.send') }}" method="POST">
+            <input type="hidden" name="ad_id" value="{{ request.args.get('ad_id') }}">
+            <input type="hidden" name="publisher_email" value="{{ request.args.get('publisher_email') }}">
+            <h3>השאירו פרטים לקבלת מידע נוסף לגבי הדירה</h3>
+            <div class="form-group">
+                <label for="fullName">שם מלא</label>
+                <input type="text" id="fullName" name="fullName" required
+                       value="{{ user.get('details', {}).get('first_name', '') }} {{ user.get('details', {}).get('last_name', '') }}">
+            </div>
+            <div class="form-group">
+                <label for="email">מייל</label>
+                <input type="email" id="email" name="email" required value="{{ user.get('email', '') }}">
+            </div>
+            <div class="form-group">
+                <label for="phone">מס' טלפון</label>
+                <input type="tel" id="phone" name="phone" required value="{{ user.get('details', {}).get('phone', '') }}">
+            </div>
+            <div class="form-group">
+                <label for="description">הודעה למשכיר הדירה:</label>
+                <textarea id="description" name="description" rows="5" cols="50"></textarea>
+            </div>
+            <button type="submit" class="submit-button">שליחה</button>
+        </form>
+    </main>
+{% endblock %}
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('contact.static', filename='js/contact.js') }}"></script>
+{% endblock %}

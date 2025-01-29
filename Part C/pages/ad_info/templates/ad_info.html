@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Ad Information' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('ad_info.static', filename='css/ad_info.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <div class="container">
+            <div class="images-section">
+                {% for image_id in apartment['images'][:2] %}
+                    <img src="{{ url_for('ad_info.get_image', image_id=image_id) }}" alt="תמונה מהמודעה" class="apartment-image">
+                {% endfor %}
+                {% if apartment['images']|length > 2 %}
+                    <a href="{{ url_for('gallery.index', apartment_id=apartment['_id']) }}" class="more-images-btn">תמונות <br>נוספות</a>
+                {% endif %}
+            </div>
+            <div class="two-rows">
+                <div class="address">{{ apartment['address'] }}</div>
+                <div class="apartment-details">
+                    <div class="detail-item">
+                        <img src="{{ url_for('static', filename='img/room-num.png') }}" alt="אייקון חדרים" class="apartment-details-images">
+                        <span>{{ apartment['rooms'] }} חדרים</span>
+                    </div>
+                    <div class="detail-item">
+                        <img src="{{ url_for('static', filename='img/floor-num.png') }}" alt="אייקון קומות" class="apartment-details-images">
+                        <span>קומה {{ apartment['floor'] }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <img src="{{ url_for('static', filename='img/size.png') }}" alt="אייקון גודל" class="apartment-details-images">
+                        <span>{{ apartment['size'] }} מ"ר</span>
+                    </div>
+                    <div class="detail-item">
+                        <img src="{{ url_for('static', filename='img/distance.png') }}" alt="אייקון מרחק" class="apartment-details-images">
+                        <span>{{ apartment['distance'] }} ק"מ מהאוניברסיטה</span>
+                    </div>
+                    <div class="detail-item">
+                        <img src="{{ url_for('static', filename='img/neighborhood.png') }}" alt="אייקון שכונה" class="apartment-details-images">
+                        <span>שכונה {{ apartment['neighborhood'] }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-rows">
+                <div class="checkbox-details">
+                    <label>
+                        <input type="checkbox" id="furnished-ad" disabled {% if apartment['details']['furnished'] %} checked {% endif %}> מרוהטת
+                    </label>
+                    <label>
+                        <input type="checkbox" id="pets-ad" disabled {% if apartment['details']['pets'] %} checked {% endif %}> חיות מחמד
+                    </label>
+                    <label>
+                        <input type="checkbox" id="shelter-ad" disabled {% if apartment['details']['shelter'] %} checked {% endif %}> מרחב מוגן
+                    </label>
+                    <label>
+                        <input type="checkbox" id="garden-ad" disabled {% if apartment['details']['garden'] %} checked {% endif %}> חצר
+                    </label>
+                    <label>
+                        <input type="checkbox" id="renovated-ad" disabled {% if apartment['details']['renovated'] %} checked {% endif %}> משופצת
+                    </label>
+                </div>
+            </div>
+            <div class="apartment-description">
+                {{ apartment['description'] }}
+            </div>
+            <div class="price">
+                <span class="label">מחיר שכירות חודשית:</span>
+                <span class="value">₪{{ apartment['price'] }}</span>
+            </div>
+            <div class="publisher-name">
+                <label>שם המפרסם/ת: {{ apartment['name'] }}</label> | <label for="publishDate">תאריך פרסום:</label> <span id="publishDate"></span>
+                <input type="hidden" name="publisher_email" value="{{ apartment['email'] }}">
+            </div>
+             <div class="two-buttons">
+                <label class="favorite-btn">
+                    <img id="heart-icon"
+                         src="{{ url_for('ad_info.static', filename='img/' ~ ('full-heart.png' if is_favorite else 'empty-heart.png')) }}"
+                         alt="לוגו לב" data-apartment-id="{{ apartment['_id'] }}">
+                </label>
+                <a href="{{ url_for('contact.index', ad_id=apartment['_id'], publisher_email=apartment['user_email']) }}"
+                   class="contact-button">להשארת פרטים
+                </a>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/set_publish_date.js') }}"></script>
+    <script src="{{ url_for('ad_info.static', filename='js/ad_info.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Upload' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('upload.static', filename='css/upload.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <h1 class="upload-an-ad-title">
+            <img src="{{ url_for('upload.static', filename='img/upload.png') }}" alt="אייקון העלאה" class="upload-icon"><span>פרסום דירה</span>
+        </h1>
+       <form class="ad-details-form" id="form" action="{{ url_for('upload.index') }}" method="POST" enctype="multipart/form-data">
+            <div class="form-container-1">
+                <div class="form-details">
+                    <label>שם המפרסם/ת</label>
+                    <input id="name" name="name" type="text" value="{{ first_name }} {{ last_name }}" required>
+                </div>
+                <div class="form-details">
+                    <label>כתובת (רחוב מס', עיר)</label>
+                    <input id="address" name="address" type="text" required>
+                </div>
+                <div class="form-details">
+                    <label>מס' חדרים</label>
+                    <input id="rooms" name="rooms" type="number" step="0.5" required>
+                </div>
+                <div class="form-details">
+                    <label>גודל במ"ר</label>
+                    <input id="size" name="size" type="number" required>
+                </div>
+                <div class="form-details">
+                    <label>קומה</label>
+                    <input id="floor" name="floor" type="number" required>
+                </div>
+                <div class="form-details">
+                    <label>מרחק מהאוניברסיטה (ק"מ)</label>
+                    <input id="distance" name="distance" type="number" step="0.1" min="0" required>
+                </div>
+                <div class="form-details">
+                    <label>מחיר שכירות חודשית (₪)</label>
+                    <input id="price" name="price" type="number" required>
+                </div>
+                <div class="form-details">
+                    <label>שכונה</label>
+                    <select id="neighborhood-select" name="neighborhood" required>
+                        <option value="" disabled selected>בחר</option>
+                        <option value="א'">א'</option>
+                        <option value="ב'">ב'</option>
+                        <option value="ג'">ג'</option>
+                        <option value="ד'">ד'</option>
+                        <option value="ה'">ה'</option>
+                        <option value="ו' החדשה">ו' החדשה</option>
+                        <option value="ו' הישנה">ו' הישנה</option>
+                        <option value="אחר">אחר</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-container-2">
+                <div class="checkbox-details">
+                <label>
+                <input type="checkbox" id="furnished" name="furnished" value="furnished">מרוהטת
+                </label>
+                <label>
+                    <input type="checkbox" id="pets" name="pets" value="pets"> חיות מחמד
+                </label>
+                <label>
+                    <input type="checkbox" id="shelter" name="shelter" value="shelter"> מרחב מוגן
+                </label>
+                <label>
+                    <input type="checkbox" id="garden" name="garden" value="garden"> חצר
+                </label>
+                <label>
+                    <input type="checkbox" id="renovated" name="renovated" value="renovated"> משופצת
+                </label>
+                </div>
+            </div>
+
+            <div class="form-details">
+                <label for="description">תיאור נוסף:</label>
+                <textarea id="description" name="description" rows="5" cols="50"></textarea>
+            </div>
+
+            <div class="form-details">
+                <div class="publishDate">
+                    <label for="publishDate"></label>
+                    <span>תאריך פרסום:</span><span id="publishDate"></span>
+                </div>
+            </div>
+
+            <label for="imageUpload" class="upload-button">
+                <img src="{{ url_for('upload.static', filename='img/upload.png') }}" alt="אייקון העלאה" class="upload-icon">העלאת תמונות
+            </label>
+            <input type="file" id="imageUpload" name="image" accept="image/*" style="display: none;" multiple>
+            <p id="selectedFilesText">לא נבחרו תמונות</p>
+            <button type="submit" class="submit-button">פרסום</button>
+        </form>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+     {{ super() }}
+    <script src="{{ url_for('static', filename='js/set_publish_date.js') }}"></script>
+    <script src="{{ url_for('upload.static', filename='js/num_of_pics_up.js') }}"></script>
+    <script src="{{ url_for('upload.static', filename='js/upload_an_ad_validation.js') }}"></script>
+
+    {% if show_popup %}
+        <div id="redirect-url" data-url="{{ login_url }}"></div>
+        <script src="{{ url_for('upload.static', filename='js/redirect_popup.js') }}"></script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'My Ads' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('my_ads.static', filename='css/my_ads.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+     <!-- דומה לקוד של include אבל עם שינויים בסוף שרלוונטים רק ל My ads ולכן לא השתמשנו ב include. -->
+     <!-- לא היה ניתן להעביר את המשתנה apartment בתוך ה- include ולכן נוצרה בעיה להכניס בלוק עבור ה- trash icon & edit-icon -->
+
+        <div class="container">
+            <h1 id="ads-title">המודעות שלי</h1>
+            {% if apartments %}
+                {% for apartment in apartments %}
+                <a href="{{ url_for('ad_info.index', apartment_id=apartment['_id']) }}" class="ad-link">
+                    <div class="ad-information" data-apartment-id="{{ apartment['_id'] }}">
+                        <img src="{{ url_for('ad_info.get_image', image_id=apartment['first_image']) }}" alt="תמונה של הדירה" class="apartment-image">
+                        <div class="two-rows">
+                            <div class="address">{{ apartment['address'] }}</div>
+                            <div class="apartment-details">
+                                <div class="detail-item">
+                                    <img src="{{ url_for('static', filename='img/room-num.png') }}" alt="אייקון חדרים" class="apartment-details-images">
+                                    <span>{{ apartment['rooms'] }} חדרים</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="{{ url_for('static', filename='img/floor-num.png') }}" alt="אייקון קומות" class="apartment-details-images">
+                                    <span>קומה {{ apartment['floor'] }}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="{{ url_for('static', filename='img/size.png') }}" alt="אייקון גודל" class="apartment-details-images">
+                                    <span>{{ apartment['size'] }} מ"ר</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="{{ url_for('static', filename='img/distance.png') }}" alt="אייקון מרחק" class="apartment-details-images">
+                                    <span>{{ apartment['distance'] }} ק"מ מהאוניברסיטה</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="{{ url_for('static', filename='img/neighborhood.png') }}" alt="אייקון שכונה" class="apartment-details-images">
+                                    <span>שכונה {{ apartment['neighborhood'] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                      <div class="price">
+                            <span class="label">מחיר שכירות חודשית:</span>
+                            <span class="value">₪{{ apartment['price'] }}</span>
+                      </div>
+                        {% if apartment['user_email'] == session['email'] %}
+                            <button type="button"
+                                    class="delete-btn"
+                                    onclick="confirmDeletion(event, '{{ apartment['_id'] }}')"
+                                    data-apartment-id="{{ apartment['_id'] }}">
+                                <img src="{{ url_for('my_ads.static', filename='img/trash-icon.png') }}"
+                                     alt="אייקון פח"
+                                     class="trash-icon">
+                            </button>
+                            <form action="{{ url_for('my_ads.edit', apartment_id=apartment['_id']) }}" method="GET">
+                                <button type="submit" class="edit-btn">
+                                    <img src="{{ url_for('my_ads.static', filename='img/edit-icon.png') }}" alt="אייקון עיפרון" class="edit-icon">
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endfor %}
+            {% else %}
+                <h2 id="no-ads-message">לא הועלו על ידך מודעות עדיין.</h2>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('my_ads.static', filename='js/my_ads.js') }}"></script>
+{% endblock %}

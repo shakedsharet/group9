@@ -1,0 +1,239 @@
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#ads-title {
+    display: flex;
+    font-size: 25px;
+    color: #290A6A;
+    margin-right: 15px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-inline: 0;
+    margin-right: 30px;
+    position: absolute;
+    left:30px;
+}
+.trash-icon {
+    width: 50px;
+    height: 40px;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: 10px;
+}
+
+.edit-icon {
+    width: 30px;
+    height: 20px;
+}
+.ad-information {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.two-rows {
+    flex-direction: column;
+    align-content: center;
+    padding-right: 10px;
+    margin-left: auto;
+}
+
+.address {
+    font-size: 18px;
+    font-weight: bold;
+    color: #290A6A;
+    margin-bottom: 10px;
+}
+.apartment-image {
+    width: 140px;
+    height: 120px;
+    border-radius: 10px;
+    padding: 5px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
+.apartment-details {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+}
+.apartment-details-images {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6347;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.price .label {
+    font-weight: normal;
+    color: black;
+}
+
+.price .value {
+    font-size: 20px;
+    color: #ff6347;
+}
+
+.ad-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.ad-link:hover {
+    cursor: pointer;
+}
+
+.ad-link:hover .ad-information {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+@media screen and (max-width: 768px) {
+    h1 {
+        margin-top: 0;
+    }
+
+    .price .value {
+        font-size: 16px;
+    }
+
+    .two-rows {
+        flex-wrap: wrap;
+    }
+
+    .ad-information{
+        width: 90%;
+    }
+    .apartment-details {
+        font-size: 15px;
+        justify-content: start;
+        width: 70%;
+    }
+    .apartment-details-images {
+        width: 20px;
+        height: 20px;
+    }
+
+    .price .label {
+        font-size: 16px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .price .value {
+        font-size: 16px;
+    }
+      .apartment-image {
+    width: 140px;
+    height: 120px;
+    border-radius: 10px;
+    padding: 5px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+}
+
+@media screen and (max-width: 550px) {
+
+    .delete-btn {
+        position: relative;
+        left: 15px;
+        top: 10px;
+    }
+    .ad-information {
+        flex-direction: column;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .price {
+        margin-top: 10px;
+        order: 2;
+        align-items: center;
+        margin-right: 15px;
+    }
+    .price .label{
+         font-size: 18px;
+
+    }
+    .price .value{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .apartment-image {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .two-rows{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .apartment-image {
+        width: 140px;
+        height: 120px;
+        border-radius: 10px;
+        padding: 5px;
+        object-fit: cover;
+        flex-shrink: 0;
+        margin-right: 5px;
+    }
+}

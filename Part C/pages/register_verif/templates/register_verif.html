@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Register Verification' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('register_verif.static', filename='css/register_verif.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <div class="register-verification-container">
+            <div class="verification-box">
+                <img src="{{ url_for('register_verif.static', filename='/img/register_verif.png') }}" alt="אייקון אימות" class="verification-icon">
+                <h1>נרשמת בהצלחה לאתר!</h1>
+                <p>עברו בבקשה להזין את פרטיכם האישיים.</p>
+                <a href="{{ url_for('user_setup.index') }}" class="button">הזנת פרטים אישיים</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block page_body_js %}
+{% endblock %}

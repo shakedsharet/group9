@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Photos Gallery' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('gallery.static', filename='css/gallery.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main class="gallery-section">
+        <h1 class="gallery-title">גלריית תמונות</h1>
+        <div class="back-button-container">
+            <a href="{{ url_for('ad_info.index', apartment_id=apartment['_id']) }}" class="back-button">חזרה למודעה</a>
+        </div>
+        <div class="gallery-container">
+             {% for image_id in images %}
+                <div class="image-item">
+                    <img src="{{ url_for('ad_info.get_image', image_id=image_id) }}" alt="תמונה מהמודעה">
+                 </div>
+             {% endfor %}
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+{% endblock %}

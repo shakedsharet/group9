@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'User Area' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('user_area.static', filename='css/user_area.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <h1 id="personal-title">אזור אישי</h1>
+        <div class="container">
+            <div class="links-box">
+                <div class="personal-details">
+                    <h3> שלום, {{ first_name }} {{ last_name }} </h3>
+                    <p>{{ email }}</p>
+                </div>
+                <ul class="personal-links">
+                    <li>
+                        <a href="{{ url_for('favorites.index') }}">
+                            <img src="{{ url_for('header.static', filename='img/heart.png') }}" alt="לוגו לב">מודעות שאהבתי
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('user_setup.index') }}">
+                            <img src="{{ url_for('contact.static', filename='img/edit-icon.png') }}" alt="לוגו עדכון">עדכון פרטים
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('my_ads.index') }}">
+                            <img src="{{ url_for('user_area.static', filename='img/posts-icon.png') }}" alt="לוגו מודעות">המודעות שלי
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('contact_requests.index') }}">
+                            <img src="{{ url_for('user_area.static', filename='img/inbox-icon.png') }}" alt="לוגו תיבת דואר">פניות שקיבלתי
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('login.log_out') }}" class="logout-button">
+                            <img src="{{ url_for('user_area.static', filename='img/logout.png') }}" alt="התנתקות" title="התנתקות">התנתקות
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+{% endblock %}

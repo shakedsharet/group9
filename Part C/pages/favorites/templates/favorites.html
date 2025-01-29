@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Favorites' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('favorites.static', filename='css/favorites.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <div class="container">
+            <h1 id="favorites-title">
+                <img src="{{ url_for('ad_info.static', filename='img/full-heart.png') }}" alt="לוגו לב"> מודעות שאהבתי
+            </h1>
+
+            <div class="favorites-list">
+                {% if apartments %}
+                    {% for apartment in apartments %}
+                        {% include 'apartment_card.html' %}
+                    {% endfor %}
+                {% else %}
+                    <h2>לא נשמרו עדיין מודעות מועדפות.</h2>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('favorites.static', filename='js/favorites.js') }}"></script>
+
+    {% if show_popup %}
+        <div id="redirect-url" data-url="{{ login_url }}"></div>
+        <script src="{{ url_for('upload.static', filename='js/redirect_popup.js') }}"></script>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="{{ url_for('header.static', filename='css/header.css') }}">
+
+<header>
+    <a href="{{ url_for('homepage.index') }}">
+        <img src="{{ url_for('header.static', filename='img/logo.png') }}" alt="לוגו UniHome">
+    </a>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('homepage.index') }}">דף הבית</a></li> |
+            <li><a href="{{ url_for('search.index') }}">חיפוש דירה</a></li> |
+            <li><a href="{{ url_for('upload.index') }}">פרסום דירה</a></li> |
+            <li><a href="{{ url_for('about.index') }}">קצת עלינו</a></li>
+        </ul>
+    </nav>
+   <div class="buttons">
+        <a href="{{ url_for('favorites.index') }}">
+            <img src="{{ url_for('header.static', filename='img/heart.png') }}" alt="לוגו לב">
+        </a>
+
+        {% if session.get('is_logged_in') %}
+        <a href="{{ url_for('user_area.index') }}">
+            <img src="{{ url_for('header.static', filename='img/logged_in.png') }}" alt="משתמש מחובר">
+        </a>
+        {% else %}
+        <a href="{{ url_for('login.index') }}">
+            <img src="{{ url_for('header.static', filename='img/login.png') }}" alt="משתמש לא מחובר">
+        </a>
+        {% endif %}
+    </div>
+</header>

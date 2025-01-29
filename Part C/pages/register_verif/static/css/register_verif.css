@@ -1,0 +1,84 @@
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin-bottom: 20px;
+}
+
+.register-verification-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.verification-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    justify-self: center;
+    width: 40%;
+}
+
+.verification-box .verification-icon {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.verification-box h1 {
+    color: #290A6A;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.verification-box p {
+    color: #333333;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.verification-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.verification-box p {
+    color: #290A6A;
+    margin-top: 15px;
+}
+
+.verification-box a {
+    color: #290A6A;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.verification-box a:hover {
+    text-decoration: underline;
+}
+
+.verification-box .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #290A6A;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.verification-box .button:hover {
+    background-color: #3b158e;
+    text-decoration: none;
+}

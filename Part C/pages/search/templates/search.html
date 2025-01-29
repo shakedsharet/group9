@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Search' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('search.static', filename='css/search.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+     <main>
+        <div class="search-container">
+            <h1>מוכן למצוא את הבית הבא שלך?</h1>
+            <p>גלה דירות בבאר שבע בקליק! סנן לפי העדפותיך והתחל לחפש עכשיו</p>
+        </div>
+
+        <section class="filters">
+            <div class="filter">
+                <div class="rooms-dropdown">
+                    <label for="room-select" class="visually-hidden">בחר מס' חדרים:</label>
+                    <select id="room-select">
+                        <option value="" disabled selected hidden>מספר חדרים</option>
+                        <option value="">ללא סינון</option>
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4">4</option>
+                        <option value="4.5">4.5</option>
+                        <option value="+5">+5</option>
+                    </select>
+                </div>
+
+                <div class="prices-dropdown">
+                    <label for="price-select" class="visually-hidden">בחר מחיר:</label>
+                    <select id="price-select">
+                        <option value="" disabled selected hidden>מחיר</option>
+                        <option value="">ללא סינון</option>
+                        <option value="0-2000">0₪ - 2,000₪</option>
+                        <option value="2000-3000">2,000₪ - 3,000₪</option>
+                        <option value="3000-4000">3,000₪ - 4,000₪</option>
+                        <option value="4000-5000">4,000₪ - 5,000₪</option>
+                        <option value="5000">+5,000₪</option>
+                    </select>
+                </div>
+                <div class="neighborhoods-dropdown">
+                    <label for="neighborhood-select" class="visually-hidden">בחר שכונה:</label>
+                    <select id="neighborhood-select">
+                        <option value="" disabled selected hidden>שכונה</option>
+                        <option value="">ללא סינון</option>
+                        <option value="א'">א'</option>
+                        <option value="ב'">ב'</option>
+                        <option value="ג'">ג'</option>
+                        <option value="ד'">ד'</option>
+                        <option value="ה'">ה'</option>
+                        <option value="ו' החדשה">ו' החדשה</option>
+                        <option value="ו' הישנה">ו' הישנה</option>
+                        <option value="אחר">אחר</option>
+                    </select>
+                </div>
+                <div class="additional-filters-dropdown">
+                    <button class="dropdown-btn">סינונים נוספים</button>
+                    <div class="dropdown-content">
+                        <label>
+                            <input type="checkbox" name="details" value="furnished"> מרוהטת
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="pets"> חיות מחמד
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="shelter"> מרחב מוגן
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="garden"> חצר
+                        </label>
+                        <label>
+                            <input type="checkbox" name="details" value="renovated"> משופצת
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- מודעות -->
+        <div class="container">
+            {% for apartment in apartments %}
+                {% include 'apartment_card.html' %}
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('search.static', filename='js/search.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="{{ url_for('apartment_card.static', filename='css/apartment_card.css') }}">
+
+<a href="{{ url_for('ad_info.index', apartment_id=apartment['_id']) }}" class="ad-link">
+    <div class="ad-information"
+         data-rooms="{{ apartment['rooms'] }}"
+         data-price="{{ apartment['price'] }}"
+         data-neighborhood="{{ apartment['neighborhood'] }}"
+         data-furnished="{{ 'true' if apartment['details']['furnished'] else 'false' }}"
+         data-pets="{{ 'true' if apartment['details']['pets'] else 'false' }}"
+         data-shelter="{{ 'true' if apartment['details']['shelter'] else 'false' }}"
+         data-garden="{{ 'true' if apartment['details']['garden'] else 'false' }}"
+         data-renovated="{{ 'true' if apartment['details']['renovated'] else 'false' }}">
+        <img src="{{ url_for('ad_info.get_image', image_id=apartment['first_image']) }}" alt="תמונה של הדירה" class="apartment-image">
+        <div class="two-rows">
+            <div class="address">{{ apartment['address'] }}</div>
+            <div class="apartment-details">
+                <div class="detail-item">
+                    <img src="{{ url_for('static', filename='img/room-num.png') }}" alt="אייקון חדרים" class="apartment-details-images">
+                    <span>{{ apartment['rooms'] }} חדרים</span>
+                </div>
+                <div class="detail-item">
+                    <img src="{{ url_for('static', filename='img/floor-num.png') }}" alt="אייקון קומות" class="apartment-details-images">
+                    <span>קומה {{ apartment['floor'] }}</span>
+                </div>
+                <div class="detail-item">
+                    <img src="{{ url_for('static', filename='img/size.png') }}" alt="אייקון גודל" class="apartment-details-images">
+                    <span>{{ apartment['size'] }} מ"ר</span>
+                </div>
+                <div class="detail-item">
+                    <img src="{{ url_for('static', filename='img/distance.png') }}" alt="אייקון מרחק" class="apartment-details-images">
+                    <span>{{ apartment['distance'] }} ק"מ מהאוניברסיטה</span>
+                </div>
+                <div class="detail-item">
+                    <img src="{{ url_for('static', filename='img/neighborhood.png') }}" alt="אייקון שכונה" class="apartment-details-images">
+                    <span>שכונה {{ apartment['neighborhood'] }}</span>
+                </div>
+                <div class="checkbox-details">
+                    <label>
+                        <input type="checkbox" id="furnished-ad" disabled {% if apartment['details']['furnished'] %} checked {% endif %}> מרוהטת
+                    </label>
+                    <label>
+                        <input type="checkbox" id="pets-ad" disabled {% if apartment['details']['pets'] %} checked {% endif %}> חיות מחמד
+                    </label>
+                    <label>
+                        <input type="checkbox" id="shelter-ad" disabled {% if apartment['details']['shelter'] %} checked {% endif %}> מרחב מוגן
+                    </label>
+                    <label>
+                        <input type="checkbox" id="garden-ad" disabled {% if apartment['details']['garden'] %} checked {% endif %}> חצר
+                    </label>
+                    <label>
+                        <input type="checkbox" id="renovated-ad" disabled {% if apartment['details']['renovated'] %} checked {% endif %}> משופצת
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="price">
+            <span class="label">מחיר שכירות חודשית:</span>
+            <span class="value">₪{{ apartment['price'] }}</span>
+        </div>
+    </div>
+</a>
+

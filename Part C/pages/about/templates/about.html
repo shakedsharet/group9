@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'About' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('about.static', filename='css/about.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <div class="frame">
+             <div class="text">
+                <h1>קצת על UniHome</h1>
+                 <p>ב-UniHome אנו שמים לנגד עיננו מטרה אחת:</p>
+                 <p>להפוך את חיפוש הדירה בבאר שבע לחוויה פשוטה ויעילה לסטודנטים</p>
+                 <br>
+                 <p>עם מאגר מרכזי של דירות להשכרה, האתר שלנו מאפשר לך לפרסם ולחפש דירות בקלות, ללא הצורך לדפדף בין עשרות קבוצות פייסבוק ואתרים אחרים.</p>
+                 <br>
+                 <p>מצא את דירתך הבאה עם סינון מתקדם ושמור על האפשרויות המועדפות עליך בקליק אחד.</p>
+                 <h2>אז למה אתם מחכים?</h2>
+                 <h3>צאו לדרך!</h3>
+             </div>
+            <img src="{{ url_for('about.static', filename='img/room.png') }}" alt="תמונה של חדר" class="room-image">
+        </div>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

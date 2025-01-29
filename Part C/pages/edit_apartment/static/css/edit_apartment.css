@@ -1,0 +1,283 @@
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    align-items: start;
+    margin: 30px auto;
+}
+
+.ad-details-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+#neighborhood-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: transparent;
+    text-align: start;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.form-container-1,
+.form-container-2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 60%;
+    flex-wrap: wrap;
+}
+
+.form-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 90%;
+    align-items: flex-start;
+}
+
+.form-details label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #290A6A;
+}
+
+.form-details input,
+.form-details textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-details .publishDate span {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #290A6A;
+    display: inline-block;
+    padding: 5px;
+}
+
+textarea {
+    font-family: 'Calibri', sans-serif;
+    height: 100px;
+    width: 80%;
+    resize: none;
+    padding: 0;
+}
+
+.upload-button {
+     border: 2px solid black;
+    background-color: transparent;
+    color: black;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.upload-button img {
+    width: 20px;
+    height: auto;
+    margin-right: 2px;
+}
+
+.upload-button:hover {
+    background-color: #f0f0f0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#selectedFilesText {
+    margin-top: 0;
+}
+
+.submit-button {
+    background-color: #290A6A;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    width: 30%;
+    justify-items: center;
+    margin: 0 auto;
+    font-family: 'Calibri', sans-serif;
+}
+
+.submit-button:hover {
+    background-color: #3b158e;
+}
+
+.edit-apartment-title {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: #290A6A;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.edit-icon {
+    width: 45px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+#neighborhood-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: transparent;
+    text-align: start;
+    cursor: pointer;
+    margin-top: 5px;
+    font-family: 'Calibri', sans-serif;
+}
+
+.checkbox-details {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    white-space: nowrap;
+    justify-content: flex-start;
+}
+
+.checkbox-details label {
+    font-size: 18px;
+    color: #290A6A;
+    display: inline-flex;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.upload-note {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+
+    form {
+        width: 50%;
+        margin: 20px auto;
+        max-width:50%;
+        padding: 20px;
+    }
+
+    .ad-details-form {
+        flex-direction: column;
+    }
+
+    .form-container-1, .form-container-2 {
+        width: 90%;
+        max-width: 800px;
+    }
+
+    .form-details {
+        width: 90%;
+    }
+
+    .submit-button {
+        width: 50%;
+        white-space: nowrap;
+
+    }
+
+    .checkbox-details {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+
+    .form-container-1 .form-details .publishDate {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    #publishDate {
+    font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .submit-button {
+        font-size: 16px;
+    }
+
+    .form-details label {
+        font-size: 14px;
+        min-width: 250px;
+    }
+
+    .form-details input,
+    .form-details textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+
+    .form-details {
+        gap: 8px;
+    }
+
+    .checkbox-details label {
+    font-size: 14px;
+    color: #290A6A;
+    display: inline-flex;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+
+    }
+
+    .upload-button{
+        font-size: 14px;
+    }
+
+    #selectedFilesText{
+        font-size: 14px;
+    }
+
+     .submit-button {
+        width: 50%;
+        font-size: 14px;
+    }
+}

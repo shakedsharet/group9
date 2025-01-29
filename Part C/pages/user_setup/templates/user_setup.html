@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'User Setup' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('user_setup.static', filename='css/user_setup.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <h1 class="user-settings-title">
+            <img src="{{ url_for('user_setup.static', filename='img/settings-icon.png') }}" alt="אייקון הגדרות" class="settings-icon">
+            <span>הגדרת פרטי משתמש</span>
+        </h1>
+        <form class="user-details-form" action="{{ url_for('user_setup.setup') }}" method="POST">
+            <div class="form-group">
+                <label for="firstName">שם פרטי</label>
+                <input id="firstName" name="firstName" type="text" placeholder="שם פרטי" value="{{ session.get('first_name', '') }}" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">שם משפחה</label>
+                <input id="lastName" name="lastName" type="text" placeholder="שם משפחה" value="{{ session.get('last_name', '') }}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">מס' טלפון</label>
+                <input id="phone" name="phone" type="tel" placeholder="מס' טלפון" value="{{ session.get('phone', '') }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">מייל</label>
+                <input id="email" name="email" type="email" value="{{ session.get('email') }}" readonly>
+            </div>
+            <button type="submit" class="submit-button">שמור</button>
+        </form>
+    </main>
+{% endblock %}
+
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('user_setup.static', filename='js/user_setup.js') }}"></script>
+{% endblock %}

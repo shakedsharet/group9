@@ -1,0 +1,86 @@
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.registration-box h1 {
+    color: #290A6A;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: black;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.input-group input {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: right;
+}
+
+button {
+    background-color: #290A6A;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #3b158e;
+}
+
+.registration-box p {
+    color: #290A6A;
+    margin-top: 15px;
+}
+
+.registration-box a {
+    color: #290A6A;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.registration-box a:hover {
+    text-decoration: underline;
+}
+
+

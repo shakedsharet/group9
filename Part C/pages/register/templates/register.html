@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Register' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('register.static', filename='css/register.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <div class="container">
+            <div class="registration-box">
+                <h1>היי, נעים להכיר</h1>
+                <p>הזינו את כתובת המייל איתה תרצו להירשם ובחרו סיסמה.</p>
+                <form id="registration-form" action="{{ url_for('register.index') }}" method="POST">
+                    <div class="input-group">
+                        <label for="email"><span class="icon"></span>📧אימייל</label>
+                        <input type="email" id="email" name="email" placeholder="הכנסת אימייל" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password"><span class="icon"></span>🔒סיסמה</label>
+                        <input type="password" id="password" name="password" placeholder="הכנסת סיסמה" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password_verif"><span class="icon"></span>🔒אימות סיסמה</label>
+                        <input type="password" id="password_verif" name="password_v" placeholder="הכנסת סיסמה שוב" required>
+                    </div>
+
+                    {% if error %}
+                        <div class="error">{{ error }}</div>
+                    {% endif %}
+
+                    <button type="submit">המשך</button>
+                </form>
+                <p>כבר יש לך חשבון? <a href="{{ url_for('login.index') }}">להתחברות</a></p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('register.static', filename='js/register.js') }}"></script>
+{% endblock %}

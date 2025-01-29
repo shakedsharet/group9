@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Homepage' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}">
+{% endblock %}
+
+{% block pre_header %}
+     <div class="marquee">
+        <span>  ברוכים הבאים ל-UniHome!        |           הבית הבא שלכם מתחיל כאן          |         מגוון דירות סטודנטיאליות והכל במקום אחד          |             הצטרפו אלינו היום ותחוו את חווית החיפוש המושלמת</span>
+     </div>
+{% endblock %}
+
+
+{% block page_body_main_content %}
+    <main>
+        <div class="frame">
+             <div class="text">
+                 <h2>באר שבע היא הבית שלך?</h2>
+                 <p>הגיע הזמן למצוא את הדירה המושלמת.</p>
+                 <br>
+                 <p>באתר שלנו תוכלו לפרסם או למצוא דירות להשכרה בקלות ובמהירות</p>
+                 <p>חפשו לפי קריטריונים שונים והתחברו לשוכרים מקומיים.</p>
+                 <br>
+                 <p>התחברו או הירשמו לאתר והתחילו!</p>
+             </div>
+        <img src="{{ url_for('homepage.static', filename='img/homepage.jpg') }}" alt="תמונת נוף" class="homepage-image">
+        </div>
+        <a href="{% if session.get('is_logged_in') %}{{ url_for('user_area.index') }}
+                {% else %}{{ url_for('login.index') }}{% endif %}" class="login_btn">התחבר/הירשם</a>
+    </main>
+{% endblock %}

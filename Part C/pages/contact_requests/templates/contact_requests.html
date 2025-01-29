@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Contact Requests' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('contact_requests.static', filename='css/contact_requests.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <div class="title-container">
+            <h1>הפניות שקיבלתי</h1>
+            <p>צפה בכל הפניות שקיבלת עבור הנכסים שלך, לחץ על סטטוס הפניה לשנות אותה ל"נקרא".</p>
+        </div>
+        <div class="inquiries-container">
+            {% for request in requests %}
+                <article class="inquiry-card">
+                <img src="{{ url_for('ad_info.get_image', image_id=request.first_image) }}" alt="תמונה של הדירה" class="apartment-image">
+                    <div class="inquiry-content">
+                        <div class="inquiry-header">
+                            <a href="{{ url_for('ad_info.index', apartment_id=request.ad_id) }}" class="apartment-link">
+                                🏠 {{ request.apartment_address or "לא צויין שם מודעה" }}
+                            </a>
+                            <span class="status-badge {{ 'status-new' if request.status == 'חדש' else 'status-read' }}" onclick="markAsRead(this, '{{ request._id }}')">
+                                {{ request.status }}
+                            </span>
+                        </div>
+                        <div class="contact-box">
+                            <p class="contact-name">{{ request.name }}</p>
+                            <div class="contact-details">
+                                <div>
+                                  <span class="emoji">📧</span>
+                                  <a href="mailto:{{ request.email }}">{{ request.email }}</a>
+                                </div>
+                                <div>
+                                  <span class="emoji">📞</span>
+                                  <a href="tel:{{ request.phone }}">{{ request.phone }}</a>
+                                </div>
+                                <div>
+                                  <span class="emoji">📅</span>
+                                  {{ request.date }}
+                                </div>
+                              </div>
+                        </div>
+                        <div class="inquiry-message">
+                            <p>{{ request.message }}</p>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </main>
+
+{% endblock %}
+
+{% block page_body_js %}
+    {{ super() }}
+    <script src="{{ url_for('contact_requests.static', filename='js/status_badge.js') }}"></script>
+{% endblock %}

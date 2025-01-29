@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Edit Apartment' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('edit_apartment.static', filename='css/edit_apartment.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <main>
+        <h1 class="edit-apartment-title">
+            <img src="{{ url_for('my_ads.static', filename='img/edit-icon.png') }}" alt="אייקון עריכה" class="edit-icon"><span>עדכון פרטי מודעה</span>
+        </h1>
+        <form action="{{ url_for('my_ads.update', apartment_id=apartment['_id']) }}" method="POST">
+                <div class="form-details">
+                    <label>שם המפרסם/ת</label>
+                    <input id="name" name="name" type="text" value="{{ apartment['name'] }}" required>
+                </div>
+                <div class="form-details">
+                    <label>כתובת (רחוב מס', עיר)</label>
+                    <input id="address" name="address" type="text" value="{{ apartment['address'] }}" required>
+                </div>
+                <div class="form-details">
+                    <label>מס' חדרים</label>
+                    <input id="rooms" name="rooms" type="number" value="{{ apartment['rooms'] }}" step="0.5" required>
+                </div>
+                <div class="form-details">
+                    <label>גודל במ"ר</label>
+                    <input id="size" name="size" type="number" value="{{ apartment['size'] }}" required>
+                </div>
+                <div class="form-details">
+                    <label>קומה</label>
+                    <input id="floor" name="floor" type="number" value="{{ apartment['floor'] }}" required>
+                </div>
+                <div class="form-details">
+                    <label>מרחק מהאוניברסיטה (ק"מ)</label>
+                    <input id="distance" name="distance" type="number" value="{{ apartment['distance'] }}" step="0.1" min="0" required>
+                </div>
+                <div class="form-details">
+                    <label>מחיר שכירות חודשית (₪)</label>
+                    <input id="price" name="price" type="number" value="{{ apartment['price'] }}" required>
+                </div>
+                <div class="form-details">
+                    <label>שכונה</label>
+                    <select id="neighborhood-select" name="neighborhood" required>
+                        <option value="" disabled>בחר</option>
+                        <option value="א'" {% if apartment['neighborhood'] == 'א' %}selected{% endif %}>א'</option>
+                        <option value="ב'" {% if apartment['neighborhood'] == 'ב' %}selected{% endif %}>ב'</option>
+                        <option value="ג'" {% if apartment['neighborhood'] == 'ג' %}selected{% endif %}>ג'</option>
+                        <option value="ד'" {% if apartment['neighborhood'] == 'ד' %}selected{% endif %}>ד'</option>
+                        <option value="ה'" {% if apartment['neighborhood'] == 'ה' %}selected{% endif %}>ה'</option>
+                        <option value="ו' החדשה" {% if apartment['neighborhood'] == 'ו החדשה' %}selected{% endif %}>ו' החדשה</option>
+                        <option value="ו' הישנה" {% if apartment['neighborhood'] == 'ו הישנה' %}selected{% endif %}>ו' הישנה</option>
+                        <option value="אחר" {% if apartment['neighborhood'] == 'אחר' %}selected{% endif %}>אחר</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-container-2">
+                <div class="checkbox-details">
+                    <label>
+                        <input type="checkbox" id="furnished" name="furnished" value="furnished" {% if apartment['details']['furnished'] %}checked{% endif %}> מרוהטת
+                    </label>
+                    <label>
+                        <input type="checkbox" id="pets" name="pets" value="pets" {% if apartment['details']['pets'] %}checked{% endif %}> חיות מחמד
+                    </label>
+                    <label>
+                        <input type="checkbox" id="shelter" name="shelter" value="shelter" {% if apartment['details']['shelter'] %}checked{% endif %}> מרחב מוגן
+                    </label>
+                    <label>
+                        <input type="checkbox" id="garden" name="garden" value="garden" {% if apartment['details']['garden'] %}checked{% endif %}> חצר
+                    </label>
+                    <label>
+                        <input type="checkbox" id="renovated" name="renovated" value="renovated" {% if apartment['details']['renovated'] %}checked{% endif %}> משופצת
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-details">
+                <label for="description">תיאור נוסף:</label>
+                    <textarea id="description" name="description" rows="5" cols="50">{{ apartment['description'] }}</textarea>
+            </div>
+            <p class="upload-note">במידה ותרצה לעדכן תמונות, תוכל למחוק את המודעה ולהעלות מחדש.</p>
+            <button type="submit" class="submit-button">עדכון</button>
+        </form>
+    </main>
+{% endblock %}
+
+
+
