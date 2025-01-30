@@ -29,8 +29,7 @@ def index():
             "details": {
                 "first_name": first_name,
                 "last_name": last_name,
-                "phone": phone,
-                "role": []
+                "phone": phone
             }
         }
         register_user(user_data)
